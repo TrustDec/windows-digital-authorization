@@ -1,4 +1,8 @@
+current v-1.0
+
 > Note: The computer must be able to be networked before activation and the Windows Update service must not be disabled. If it is disabled, please enable the service first.
+
+[简体中文](./zh-cn.md)
 
 see [Historical update log](./updatelog.md)
 

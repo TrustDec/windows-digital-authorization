@@ -1,72 +1,63 @@
----------------------------------------------------------------------------
 
+#### 2018/07/07 v1.0-beta.5:
 
-2018-6-9 第七版更新内容：
-1、 新增支持激活 EnterpriseN 和 EnterpriseSN
+  1. Support automatic judgment and install skus certificate.
+```log
+    a).The script will automatically detect which version you choose to activate, whether there is a certificate in the skus b).directory, and activate it if it exists.
 
+    c).If there is no certificate in the skus directory, the script will automatically install the corresponding version of the certificate, and the activation will be completed after the installation.
 
+    d).There is currently a certificate with 1709=16299 1803=17134.
 
----------------------------------------------------------------------------
-
-
-2018-6-9 第六版更新内容：
-1、 支持自动判断安装 skus证书。
-脚本会自动检测你选择激活的版本，在 skus目录内是否存在证书，如果存在则直接激活。
-如果检测到 skus目录里没有证书，脚本会自动安装对应版本的证书，安装完成再进行激活工作。
-目前内置有 1709=16299  1803=17134的证书。
-和 1607=14393的 LTSB证书。
-2、 选项2自定义激活有原来的输入 KEY，改为输入字母选择菜单。
-3、 使用 Win7兼容模式运行 gatherosstate.exe，来获取 gatherosstate.xml俗称数字门票。（感谢 940L @wxgx提供国外原帖信息）
-4、 继续补充脚本部分提示信息。
-
-
----------------------------------------------------------------------------
-
-
-2018-6-1 第五版更新内容：
-1、 更改 SKU导入方法，有第二版到第四版的自动获取，改为在脚本内指定 SKU值。
-2、 修正无法激活专业教育版的 BUG（感谢 642L @dizhu102和 537L @oscar26981289的反馈）。
-3、 支持导入其它版本的证书后使用脚本激活，（支持激活的版本需在脚本支持范围内）。
-注： EnterpriseN和 LTSB2016N不支持，LTSB2016也应该不支持转换。
-4、 调整版本信息显示方式。
-5、 继续优化和补充少量脚本的提示信息。
+    e).And 1607=14393 LTSB certificate.
+```
+2. Option 2 custom activation has the original input KEY, instead enter the letter selection menu.
+3. Run gatherosstate.exe in Win7 compatibility mode to get the collective name of gatherosstate.xml. (Thanks to 940L @wxgx for providing original information on foreign posts)
+4. Continue to add some hints to the script.
+5. new support to activate EnterpriseN and EnterpriseSN
 
 
 
----------------------------------------------------------------------------
 
-2018-5-29 第四版更新内容：
-1、 新增判断 Windows Update服务是否被禁用。
-如果发现 Update服务在禁用状态，脚本会设置成自动启动 Update服务，并启动Update服务。
-激活完成后自动禁用 Update服务，恢复 Update服务成原来的状态。（感谢301L @Younhem的建议）。
-2、 新增安装 KEY选项，安装 KEY选项只安装 KEY不做其他操作。
-3、 开始激活前自动启动 Windows Update服务。
-4、 修正自定义输入 KEY激活导入的注册表 SKU值错误问题。
-5、 修正自定义激活见面罗列出来的 KEY版本错误问题。
+#### 2018/07/05 v1.0-beta.4:
 
-
-
----------------------------------------------------------------------------
-
-2018-5-27 第三版更新内容：
-1、 新增输入 KEY选项，用户可以选择激活当前使用的版本或者输入 KEY，激活其它版本。（感谢184L @maomihuacha的建议）
-2、 新增查看当前系统版本信息。
-3、 批处理脚本新增菜单选项。
-4、 修正激活后非简体中文系统不显示部分密钥问题。
-5、 输入 KEY见面罗列出支持的个版本公用 KEY，方便用户复制粘贴。
-6、 新增卸载当前系统密钥。
-7、 添加访问脚本发布帖网址。
-8、 补充批处理脚本部分提示信息。
+1. Change the SKU import method. There are automatic acquisitions from the second edition to the fourth edition, and the SKU value is specified in the script.
+2. Fixed the bug that the professional education version could not be activated (thanks to the feedback from 642L @dizhu102 and 537L @oscar26981289).
+3. Support the use of script activation after importing other versions of the certificate. (The supported version needs to be within the scope of script support).
+Note: EnterpriseN and LTSB2016N do not support, and LTSB2016 should not support conversion.
+4. Adjust the version information display mode.
+5. Continue to optimize and supplement the hints of a small number of scripts.
 
 
 
----------------------------------------------------------------------------
+#### 2018/07/04 v1.0-beta.3:
 
-2018-5-25 第二版更新内容：
-1、 判断系统是否已经永久激活，新增多语言支持。（感谢46L @WrongREqia0的反馈，以及73L的帮助）。 
-2、 修正 PRofessionalWorkstationN标签中文冒号问题。（感谢46L @WrongREqia0的反馈）。 
-3、 新增激活后显示系统版本信息。 
+1. Add a new judgment to see if the Windows Update service is disabled.
+If the Update service is found to be disabled, the script will be set to automatically start the Update service and start the Update service.
+After the activation is completed, the Update service is automatically disabled, and the Update service is restored to its original state. (Thanks to 301L @Younhem for his advice).
+2, add the installation KEY option, install the KEY option only install KEY and do not do other operations.
+3. Start the Windows Update service automatically before starting the activation.
+4, modify the custom input KEY activation import registry SKU value error.
+5. Fix the problem of the KEY version error listed in the custom activation meeting.
 
----------------------------------------------------------------------------
 
-2018-5-24 第一版发布
+#### 2018/07/03 v1.0-beta.2:
+
+1. Add the input KEY option, the user can choose to activate the currently used version or enter KEY to activate other versions. (Thanks to 184L @maomihuacha for advice)
+2. Add the current system version information.
+3. The batch script adds menu options.
+4. After the activation is activated, the non-Simplified Chinese system does not display partial key problems.
+5. Enter KEY to see the supported version of the public KEY, which is convenient for users to copy and paste.
+6. Uninstall the current system key.
+7. Add an access script to post the post URL.
+8, supplement the batch script part of the prompt information.
+
+
+
+#### 2018/07/01 v1.0-beta.1:
+
+1. Determine if the system has been permanently activated and add multi-language support. (Thanks for the feedback from 46L @WrongREqia0 and the help of 73L).
+2. Fix the Chinese flag of the PRofessionalWorkstationN tag. (Thanks to 46L @WrongREqia0 for feedback).
+3. Display system version information after adding new activation.
+
+
