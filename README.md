@@ -23,4 +23,4 @@ Next, there are several options. By default, we directly fill in the number 1 to
 
 After the final execution, the script will prompt you that the system has been activated, and the activation is completed in less than 30 seconds. If you go to the system activation option you will see that you have earned digital rights.
 
-thank [@slshim](https://github.com/vyvojar/slshim)
+thank [@vyvojar](https://github.com/vyvojar/slshim)
