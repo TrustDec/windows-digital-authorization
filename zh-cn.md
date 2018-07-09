@@ -2,6 +2,7 @@
 
 [查看历史更新记录](./updatelog-zh-cn.md)
 
+[原版系统安装](./SystemInstall.md)
 
 ### 安装
 

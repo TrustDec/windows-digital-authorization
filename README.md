@@ -4,6 +4,8 @@ current v-1.0
 
 [简体中文](./zh-cn.md)
 
+[System install](./SystemInstall.md)
+
 see [Historical update log](./updatelog.md)
 
 
