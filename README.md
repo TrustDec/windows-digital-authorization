@@ -36,3 +36,4 @@ Current v-1.0
 当然不论是否登录账号都不会影响数字许可证，即下次重装系统输入对应版本的激活密钥后系统将自动执行激活。
 
 [@vyvojar](https://github.com/vyvojar/slshim) [@黯然 KING](http://bbs.pcbeta.com/viewthread-1786788-1-1.html)
+[@landian](https://www.landiannews.com/archives/47882.html)
