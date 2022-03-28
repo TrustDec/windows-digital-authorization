@@ -6,7 +6,7 @@
 
 ### 安装
 
-[下载稳定版](https://github.com/TrustTheBoy/windows-digital-authorization/archive/stable-v1.0.zip)
+[下载稳定版](https://github.com/TrustDec/windows-digital-authorization/archive/stable-v1.0.zip)
 
 #### 步骤1
 

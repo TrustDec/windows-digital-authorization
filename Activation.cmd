@@ -1,8 +1,8 @@
     @echo off
 
-    rem author: TrustTheBoy
+    rem author: TrustDec
     rem 推荐MSDN原版镜像:https://msdn.itellyou.cn
-
+    chcp 65001
     set "Apply=%*"
     cd /d "%~dp0" && ( if exist "%temp%\getadmin.vbs" del "%temp%\getadmin.vbs" ) && fsutil dirty query %systemdrive% 1>nul 2>nul || (  cmd /u /c echo Set UAC = CreateObject^("Shell.Application"^) : UAC.ShellExecute "cmd.exe", "/k cd ""%~sdp0"" && %~s0 %Apply%", "", "runas", 1 >> "%temp%\getadmin.vbs" && "%temp%\getadmin.vbs" && exit /B )
     title Windows 10 数字权利激活脚本
@@ -15,20 +15,29 @@
     ) else (
     set bit=x64
         )
-
     echo ---------------------------------------------------------------
     echo     脚本仅支持 Windows 10 系统，其它系统请勿运行此脚本。
+
     echo     脚本支持激活以下版本 Windows 10，并获取数字权利。
+    
     echo ---------------------------------------------------------------
+
     echo     Windows 10 家庭版、家庭N、家庭单语言版、家庭国家版、Windows 10 S、Windows 10 SN。
+
     echo     专业版、专业N、专业教育版、专业教育N、专业工作站版、工作站N。
+
     echo     企业版、企业 （LTSB 2016）、教育版、教育N。
+
     echo ---------------------------------------------------------------
     echo     激活时请保持电脑连网状态，断网情况下无法使用此方法激活。
+
     echo     激活可能一次无法成功，遇到无法成功的可以重新运行脚本尝试激活。另外有些精简版系统也可能无法激活。
+
     echo ---------------------------------------------------------------
     echo     脚本不支持路径中带有空格，请在路径中不含空格的目录下运行。
+
     echo     切换版本后最后的版本信息显示可能会有延时，请参考输入的 KEY为证。或注销系统后再查看。
+
     echo ---------------------------------------------------------------
     echo     按任意键开始，或按Ctrl+C退出脚本！
     pause >nul
@@ -40,11 +49,17 @@
     echo     请选择任务。
     echo ---------------------------------------------------------------
     echo     [1]一键激活当前版本。
+
     echo     [2]自定义选择版本激活。
+
     echo     [3]查看当前系统版本信息。
+
     echo     [4]安装 KEY（不激活）。
-    echo    [5] 卸载系统默认 KEY。
+
+    echo     [5] 卸载系统默认 KEY。
+
     echo     [6]访问脚本发布帖，（仅限远景注册用户访问）。
+
     echo     [7]退出脚本。
 
     echo ---------------------------------------------------------------
@@ -67,28 +82,51 @@
     echo ---------------------------------------------------------------
 
     echo A= Windows 10 S （安装证书仅限 16299）
+
     echo B= Windows 10 S N （安装证书仅限 16299）
+
     echo ---------------------------------------------------------------
+
     echo 以下版本支持安装 16299和 17134的证书。
+
     echo C= Windows 10 家庭版
+
     echo D= Windows 10 家庭 N
+
     echo E= Windows 10 家庭国家版
+
     echo F= Windows 10 家庭单语言版
+
     echo ---------------------------------------------------------------
+
     echo G= Windows 10 专业版
+
     echo H= Windows 10 专业 N
+
     echo I= Windows 10 专业教育版
+
     echo J= Windows 10 专业教育 N
+
     echo K= Windows 10 专业工作站版
+
     echo L= Windows 10 专业工作站 N
+
     echo ---------------------------------------------------------------
+
     echo M= Windows 10 教育版
+
     echo N= Windows 10 教育 N
+
     echo ---------------------------------------------------------------
+
     echo O= Windows 10 企业版
+
     echo P= Windows 10 企业 N
+
     echo Q= Windows 10 企业 LTSB
+
     echo R= Windows 10 企业 LTSB N
+
     echo ---------------------------------------------------------------
 
     echo.
@@ -257,8 +295,11 @@
     :activation1
 
     echo ---------------------------------------------------------------
+
     echo      正在安装KEY，请等待完成。
+
     echo ---------------------------------------------------------------
+
     cscript /nologo %SystemRoot%\System32\slmgr.vbs /ipk %pidkey% || goto error1
     timeout /nobreak /t 2 >nul
     wmic path SoftwareLicensingProduct where (LicenseStatus='1' and GracePeriodRemaining='0') get Name 2>nul | findstr /i "Windows" >nul 2>&1 && (echo. & echo 您选择的版本已在本计算机上永久激活！无需再次激活。 & echo 请按任意键重新选择！ & pause >nul && goto choice )
@@ -272,8 +313,11 @@
     reg add "HKCU\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers" /v "%~dp0%bit%\gatherosstate.exe" /d "^ WIN7RTM" /f >nul
 
     echo ---------------------------------------------------------------
+
     echo     正在获取数字门票，请等待完成。
+
     echo ---------------------------------------------------------------
+
 
     start /wait %~dp0%bit%\Gatherosstate.exe
     timeout /nobreak /t 4 >nul
@@ -302,10 +346,15 @@
     :information
     title Windows 10 数字权利激活脚本－版本信息
     echo ---------------------------------------------------------------
+
     for /f "delims=" %%f in ('wmic os get caption ^| findstr /i "Microsoft"') do (echo %%f)
+
     for /f "tokens=2-4" %%f in ('ver') do (echo %%f %%g %%h)
+
 for /f "tokens=5 delims= " %%f in ('cscript /nologo %SystemRoot%\System32\slmgr.vbs /dli ^| findstr /i "channel"') do  (echo 产品密钥通道: %%f)
+
     for /f "skip=3 delims=" %%f in ('cscript /nologo %SystemRoot%\System32\slmgr.vbs /dli') do (echo %%f)
+
     echo ---------------------------------------------------------------
 
     pause
@@ -318,12 +367,19 @@ exit
     :install
     title Windows 10 数字权利激活脚本－安装 KEY
     echo ---------------------------------------------------------------
+
     set /p install="请输入或粘贴需要安装的 KEY，按 Enter安装"
+
     cls
+
     echo ---------------------------------------------------------------
+
     echo      正在安装KEY，请等待完成。
+
     echo ---------------------------------------------------------------
+
     cscript /nologo %SystemRoot%\System32\slmgr.vbs /ipk %install% || goto error
+
     echo ---------------------------------------------------------------
 
     for /f "tokens=3" %%k in ('cscript /nologo %SystemRoot%\System32\slmgr.vbs /dti') do (set ID=%%k)
@@ -338,20 +394,28 @@ exit
     set pid7=!pid0:~42,7!
     set pid8=!pid0:~49,7!
     set pid9=!pid0:~56,7!
+
     echo 安装 ID: !pid1! !pid2! !pid3! !pid4! !pid5! !pid6! !pid7! !pid8! !pid9!
         )
 
     :error
+
     echo ---------------------------------------------------------------
+
     pause
 exit
 
     :uninstall
     title Windows 10 数字权利激活脚本－卸载 KEY
+
     echo ---------------------------------------------------------------
+
     echo     正在卸载默认 KEY，请稍等。
+
     echo ---------------------------------------------------------------
+
     cscript /nologo %SystemRoot%\system32\slmgr.vbs /upk
+
     echo ---------------------------------------------------------------
 
 pause
@@ -359,8 +423,12 @@ exit
 
     :end
     echo ---------------------------------------------------------------
+
     echo 证书复制失败，请检查 skus目录是否完整，和系统版本是否支持！
+
     echo ---------------------------------------------------------------
+
     echo 按任意键退出脚本。
+
     pause >nul
 exit
